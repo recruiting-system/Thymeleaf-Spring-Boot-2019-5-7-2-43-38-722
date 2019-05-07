@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>thymeleaf</title>
+    <style>
+        table
+        {
+            border-collapse:collapse;
+            text-align: center;
+        }
+        table, th, td {
+            border: 2px black solid;
+        }
+    </style>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td colspan="3">产品信息</td>
+    </tr>
+    <tr>
+        <td>产品名称</td>
+        <td>产品价格</td>
+        <td>产品有效时间</td>
+    </tr>
+    <tr>
+        <td th:text="${product.description}"></td>
+        <td th:text="${#numbers.formatDecimal(product.price,2,2)}"></td>
+        <td th:text="${#dates.format(product.availableFrom, 'yyyy-MM-dd')}"></td>
+    </tr>
+</table>
+</body>
+</html>
